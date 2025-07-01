@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Warung Makan Mini - Pesanan Interaktif</title>
+  <title>Warung Maknyus - Pesanan Interaktif</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -189,6 +189,9 @@
       border-left: 4px solid var(--primary-color); /* Border kiri dikurangi */
       box-shadow: 0 1px 6px rgba(0,0,0,0.04); /* Bayangan dikurangi */
       font-size: 1em; /* Ukuran font sedikit dikurangi */
+      display: flex; /* Menggunakan flexbox untuk tata letak */
+      justify-content: space-between; /* Memisahkan konten dan tombol hapus */
+      align-items: center; /* Pusatkan secara vertikal */
     }
     .cart li:hover {
       background: #FFF8E1;
@@ -201,6 +204,22 @@
       border-left-color: #81C784;
       opacity: 0.7;
       background-color: #F5F5F5;
+    }
+
+    .cart li .remove-item {
+      background-color: #FF5252; /* Warna merah untuk tombol hapus */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 4px 8px;
+      cursor: pointer;
+      font-size: 0.8em;
+      margin-left: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cart li .remove-item:hover {
+      background-color: #D32F2F;
     }
 
     .total {
@@ -217,6 +236,16 @@
       border-radius: 5px; /* Radius dikurangi */
       font-size: 1em; /* Ukuran font sedikit dikurangi */
       max-width: 280px; /* Batasi lebar tombol */
+      background-color: var(--primary-color); /* Warna tombol yang konsisten */
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .clear-btn:hover {
+      background-color: var(--accent-color);
+      transform: translateY(-1px);
     }
 
     /* Responsif */
@@ -272,6 +301,9 @@
         font-size: 1.8em;
       }
       .filter-buttons {
+        display: flex; /* Menggunakan flexbox untuk tombol filter */
+        flex-wrap: wrap; /* Memungkinkan tombol untuk wrap ke baris berikutnya */
+        justify-content: center;
         gap: 8px;
       }
       .filter-button {
@@ -289,7 +321,7 @@
 </head>
 <body>
 
-  <h1>🍽 Warung Makanku</h1>
+  <h1>🍽 Warung Maknyus</h1>
 
   <div class="filter-buttons">
     <button class="filter-button active" data-filter="all">Semua Menu</button>
@@ -300,7 +332,7 @@
   <div class="menu-container">
     <!-- GAMBAR & HARGA HTML -->
     <div class="menu-item" data-nama="Nasi Goreng" data-harga="15000" data-kategori="makanan">
-      <img src="/img/nasi goreng.jpg" alt="Nasi Goreng">
+      <img src="img/nasi goreng.jpg" alt="Nasi Goreng">
       <h3>Nasi Goreng</h3>
       <p>Rp15.000</p>
       <input type="number" min="1" value="1" class="jumlah">
@@ -308,7 +340,7 @@
     </div>
 
     <div class="menu-item" data-nama="Mie Ayam" data-harga="12000" data-kategori="makanan">
-      <img src="/img/mie ayam.jpg" alt="Mie Ayam">
+      <img src="img/mie ayam.jpg" alt="Mie Ayam">
       <h3>Mie Ayam</h3>
       <p>Rp12.000</p>
       <input type="number" min="1" value="1" class="jumlah">
@@ -316,7 +348,7 @@
     </div>
 
      <div class="menu-item" data-nama="Ayam Bakar" data-harga="25000" data-kategori="makanan">
-      <img src="/img/ayam bakare.jpg" alt="Ayam Bakar">
+      <img src="img/ayam bakare.jpg" alt="Ayam Bakar">
       <h3>Ayam Bakar</h3>
       <p>Rp25.000</p>
       <input type="number" min="1" value="1" class="jumlah">
@@ -324,7 +356,7 @@
     </div>
 
     <div class="menu-item" data-nama="Miso" data-harga="18000" data-kategori="makanan">
-      <img src="/img/miso.jpg" alt="Miso">
+      <img src="img/miso.jpg" alt="Miso">
       <h3>Miso</h3>
       <p>Rp18.000</p>
       <input type="number" min="1" value="1" class="jumlah">
@@ -332,7 +364,7 @@
     </div>
 
      <div class="menu-item" data-nama="Nasi Uduk" data-harga="18000" data-kategori="makanan">
-      <img src="/img/nasi uduk.jpg" alt="Nasi Uduk">
+      <img src="img/nasi uduk.jpg" alt="Nasi Uduk">
       <h3>Nasi Uduk</h3>
       <p>Rp18.000</p>
       <input type="number" min="1" value="1" class="jumlah">
@@ -340,7 +372,7 @@
     </div>
 
      <div class="menu-item" data-nama="Bakso" data-harga="18000" data-kategori="makanan">
-      <img src="/img/bakso.jpg" alt="Bakso">
+      <img src="img/bakso.jpg" alt="Bakso">
       <h3>Bakso</h3>
       <p>Rp18.000</p>
       <input type="number" min="1" value="1" class="jumlah">
@@ -348,7 +380,7 @@
     </div>
 
     <div class="menu-item" data-nama="Es Teh" data-harga="5000" data-kategori="minuman">
-      <img src="/img/es teh.jpg" alt="Es Teh ">
+      <img src="img/es teh.jpg" alt="Es Teh ">
       <h3>Es Teh</h3>
       <p>Rp5.000</p>
       <input type="number" min="1" value="1" class="jumlah">
@@ -356,7 +388,7 @@
     </div>
 
     <div class="menu-item" data-nama="Teh Panas" data-harga="5000" data-kategori="minuman">
-      <img src="/img/teh panas.jpg" alt="Teh Panas ">
+      <img src="img/teh panas.jpg" alt="Teh Panas ">
       <h3>Teh Panas</h3>
       <p>Rp5.000</p>
       <input type="number" min="1" value="1" class="jumlah">
@@ -364,7 +396,7 @@
     </div>
 
     <div class="menu-item" data-nama="Jus Jeruk" data-harga="7000" data-kategori="minuman">
-      <img src="/img/es jeruk.jpg" alt="Jus Jeruk ">
+      <img src="img/jus jeruk.jpg" alt="Jus Jeruk ">
       <h3>Jus Jeruk</h3>
       <p>Rp7.000</p>
       <input type="number" min="1" value="1" class="jumlah">
@@ -372,7 +404,7 @@
     </div>
 
     <div class="menu-item" data-nama="Jus Alpukat" data-harga="7000" data-kategori="minuman">
-      <img src="/img/jus pokat.jpg" alt="Jus Alpukat ">
+      <img src="img/jus pokat.jpg" alt="Jus Alpukat ">
       <h3>Jus Alpukat</h3>
       <p>Rp7.000</p>
       <input type="number" min="1" value="1" class="jumlah">
@@ -380,7 +412,7 @@
     </div>
 
     <div class="menu-item" data-nama="Le Minerale" data-harga="7000" data-kategori="minuman">
-      <img src="/img/le minerale.jpg" alt=" ">
+      <img src="img/le minerale.jpg" alt=" ">
       <h3>Le Minerale</h3>
       <p>Rp4.000</p>
       <input type="number" min="1" value="1" class="jumlah">
@@ -408,6 +440,11 @@
 
       let total = 0;
 
+      // Fungsi untuk memperbarui total harga
+      function updateTotal() {
+        totalText.textContent = `Total: Rp${total.toLocaleString('id-ID')}`;
+      }
+
       // Fungsi untuk memfilter menu
       function filterMenu(category) {
         menuItems.forEach(item => {
@@ -433,64 +470,83 @@
         });
       });
 
+      // Event listener untuk tombol "Tambah"
       buttons.forEach(button => {
         button.addEventListener("click", () => {
           const item = button.closest(".menu-item");
           const nama = item.dataset.nama;
           const harga = parseInt(item.dataset.harga);
-          const jumlah = parseInt(item.querySelector(".jumlah").value);
+          const jumlahInput = item.querySelector(".jumlah");
+          const jumlah = parseInt(jumlahInput.value);
 
           if (jumlah <= 0 || isNaN(jumlah)) {
-            alert("Jumlah tidak valid!");
+            alert("Jumlah tidak valid! Harap masukkan angka positif.");
             return;
           }
 
           const subtotal = harga * jumlah;
-          const li = document.createElement("li");
-          li.textContent = ${nama} x${jumlah} - Rp${subtotal.toLocaleString()};
-          
-          // Event listener untuk menandai pesanan selesai (klik tunggal)
-          li.addEventListener("click", () => {
-            // Hanya ubah status jika belum selesai
-            if (!li.classList.contains('done')) {
-              li.classList.add('done');
-              // Kurangi total jika item ditandai selesai
-              total -= subtotal;
-            } else {
-              li.classList.remove('done');
-              // Tambahkan kembali ke total jika item dibatalkan selesai
-              total += subtotal;
-            }
-            totalText.textContent = Total: Rp${total.toLocaleString()};
-          });
 
-          // Event listener untuk menghapus pesanan (klik ganda)
-          li.addEventListener("dblclick", () => {
-            // Hanya kurangi total jika item belum ditandai selesai sebelum dihapus
-            if (!li.classList.contains('done')) {
-              total -= subtotal;
+          // Buat elemen daftar pesanan baru
+          const li = document.createElement("li");
+          li.dataset.nama = nama; // Simpan nama untuk referensi
+          li.dataset.hargaSatuan = harga; // Simpan harga satuan
+          li.dataset.jumlah = jumlah; // Simpan jumlah
+          li.dataset.subtotal = subtotal; // Simpan subtotal
+
+          const textSpan = document.createElement("span");
+          textSpan.textContent = `${nama} x${jumlah} - Rp${subtotal.toLocaleString('id-ID')}`;
+          li.appendChild(textSpan);
+
+          // Tambahkan tombol hapus untuk setiap item pesanan
+          const removeButton = document.createElement("button");
+          removeButton.textContent = "Hapus";
+          removeButton.classList.add("remove-item");
+          removeButton.addEventListener("click", (event) => {
+            event.stopPropagation(); // Mencegah event click pada li
+            if (confirm(`Yakin ingin menghapus ${nama} dari pesanan?`)) {
+              const itemSubtotal = parseInt(li.dataset.subtotal);
+              total -= itemSubtotal;
+              li.remove();
+              updateTotal();
             }
-            li.remove(); // Hapus elemen dari daftar
-            totalText.textContent = Total: Rp${total.toLocaleString()};
+          });
+          li.appendChild(removeButton);
+
+          // Event listener untuk menandai selesai (toggle 'done' class)
+          li.addEventListener("click", () => {
+            li.classList.toggle('done');
+            // Logika untuk menyesuaikan total saat item ditandai selesai/belum selesai
+            const itemSubtotal = parseInt(li.dataset.subtotal);
+            if (li.classList.contains('done')) {
+              total -= itemSubtotal;
+            } else {
+              total += itemSubtotal;
+            }
+            updateTotal();
           });
 
           keranjang.appendChild(li);
 
           total += subtotal;
-          totalText.textContent = Total: Rp${total.toLocaleString()};
+          updateTotal();
+
+          // Reset jumlah input ke 1 setelah ditambahkan
+          jumlahInput.value = 1;
         });
       });
 
+      // Event listener untuk tombol "Bersihkan Pesanan"
       clearBtn.addEventListener("click", () => {
         if (confirm("Yakin ingin menghapus semua pesanan?")) {
-          keranjang.innerHTML = ""; // Kosongkan daftar pesanan
-          total = 0; // Reset total
-          totalText.textContent = "Total: Rp0"; // Perbarui tampilan total
+          keranjang.innerHTML = "";
+          total = 0;
+          updateTotal();
         }
       });
 
       // Inisialisasi: Tampilkan semua menu saat halaman pertama kali dimuat
       filterMenu('all');
+      updateTotal(); // Pastikan total awal ditampilkan dengan benar
     });
   </script>
 
