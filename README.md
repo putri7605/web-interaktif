@@ -300,7 +300,7 @@
   <div class="menu-container">
     <!-- GAMBAR & HARGA HTML -->
     <div class="menu-item" data-nama="Nasi Goreng" data-harga="15000" data-kategori="makanan">
-      <img src="nasi goreng.jpg" alt="Nasi Goreng">
+      <img src="/img/nasi goreng.jpg" alt="Nasi Goreng">
       <h3>Nasi Goreng</h3>
       <p>Rp15.000</p>
       <input type="number" min="1" value="1" class="jumlah">
@@ -308,7 +308,7 @@
     </div>
 
     <div class="menu-item" data-nama="Mie Ayam" data-harga="12000" data-kategori="makanan">
-      <img src="mieayam.jpg" alt="Mie Ayam">
+      <img src="/img/mie ayam.jpg" alt="Mie Ayam">
       <h3>Mie Ayam</h3>
       <p>Rp12.000</p>
       <input type="number" min="1" value="1" class="jumlah">
@@ -316,7 +316,7 @@
     </div>
 
      <div class="menu-item" data-nama="Ayam Bakar" data-harga="25000" data-kategori="makanan">
-      <img src="ayam bakar.jpg" alt="Ayam Bakar">
+      <img src="/img/ayam bakare.jpg" alt="Ayam Bakar">
       <h3>Ayam Bakar</h3>
       <p>Rp25.000</p>
       <input type="number" min="1" value="1" class="jumlah">
@@ -324,7 +324,7 @@
     </div>
 
     <div class="menu-item" data-nama="Miso" data-harga="18000" data-kategori="makanan">
-      <img src="mieso.jpg" alt="Miso">
+      <img src="/img/miso.jpg" alt="Miso">
       <h3>Miso</h3>
       <p>Rp18.000</p>
       <input type="number" min="1" value="1" class="jumlah">
@@ -332,7 +332,7 @@
     </div>
 
      <div class="menu-item" data-nama="Nasi Uduk" data-harga="18000" data-kategori="makanan">
-      <img src="nasi.jpg" alt="Nasi Uduk">
+      <img src="/img/nasi uduk.jpg" alt="Nasi Uduk">
       <h3>Nasi Uduk</h3>
       <p>Rp18.000</p>
       <input type="number" min="1" value="1" class="jumlah">
@@ -340,7 +340,7 @@
     </div>
 
      <div class="menu-item" data-nama="Bakso" data-harga="18000" data-kategori="makanan">
-      <img src="bakso.jpg" alt="Bakso">
+      <img src="/img/bakso.jpg" alt="Bakso">
       <h3>Bakso</h3>
       <p>Rp18.000</p>
       <input type="number" min="1" value="1" class="jumlah">
@@ -348,7 +348,7 @@
     </div>
 
     <div class="menu-item" data-nama="Es Teh" data-harga="5000" data-kategori="minuman">
-      <img src="mandi.jpg" alt="Es Teh ">
+      <img src="/img/es teh.jpg" alt="Es Teh ">
       <h3>Es Teh</h3>
       <p>Rp5.000</p>
       <input type="number" min="1" value="1" class="jumlah">
@@ -356,7 +356,7 @@
     </div>
 
     <div class="menu-item" data-nama="Teh Panas" data-harga="5000" data-kategori="minuman">
-      <img src="teh manis.jpg" alt="Teh Panas ">
+      <img src="/img/teh panas.jpg" alt="Teh Panas ">
       <h3>Teh Panas</h3>
       <p>Rp5.000</p>
       <input type="number" min="1" value="1" class="jumlah">
@@ -364,7 +364,7 @@
     </div>
 
     <div class="menu-item" data-nama="Jus Jeruk" data-harga="7000" data-kategori="minuman">
-      <img src="jeruk.jpg" alt="Jus Jeruk ">
+      <img src="/img/es jeruk.jpg" alt="Jus Jeruk ">
       <h3>Jus Jeruk</h3>
       <p>Rp7.000</p>
       <input type="number" min="1" value="1" class="jumlah">
@@ -372,7 +372,7 @@
     </div>
 
     <div class="menu-item" data-nama="Jus Alpukat" data-harga="7000" data-kategori="minuman">
-      <img src="alpikat.jpg" alt="Jus Alpukat ">
+      <img src="/img/jus pokat.jpg" alt="Jus Alpukat ">
       <h3>Jus Alpukat</h3>
       <p>Rp7.000</p>
       <input type="number" min="1" value="1" class="jumlah">
@@ -380,7 +380,7 @@
     </div>
 
     <div class="menu-item" data-nama="Le Minerale" data-harga="7000" data-kategori="minuman">
-      <img src="air mineral.jpg" alt=" ">
+      <img src="/img/le minerale.jpg" alt=" ">
       <h3>Le Minerale</h3>
       <p>Rp4.000</p>
       <input type="number" min="1" value="1" class="jumlah">
@@ -447,7 +447,7 @@
 
           const subtotal = harga * jumlah;
           const li = document.createElement("li");
-          li.textContent = '${nama} x${jumlah} - Rp${subtotal.toLocaleString()}';
+          li.textContent = ${nama} x${jumlah} - Rp${subtotal.toLocaleString()};
           
           // Event listener untuk menandai pesanan selesai (klik tunggal)
           li.addEventListener("click", () => {
@@ -461,7 +461,7 @@
               // Tambahkan kembali ke total jika item dibatalkan selesai
               total += subtotal;
             }
-            totalText.textContent = 'Total: Rp${total.toLocaleString()}';
+            totalText.textContent = Total: Rp${total.toLocaleString()};
           });
 
           // Event listener untuk menghapus pesanan (klik ganda)
@@ -471,13 +471,13 @@
               total -= subtotal;
             }
             li.remove(); // Hapus elemen dari daftar
-            totalText.textContent = 'Total: Rp${total.toLocaleString()}';
+            totalText.textContent = Total: Rp${total.toLocaleString()};
           });
 
           keranjang.appendChild(li);
 
           total += subtotal;
-          totalText.textContent = 'Total: Rp${total.toLocaleString()}';
+          totalText.textContent = Total: Rp${total.toLocaleString()};
         });
       });
 
